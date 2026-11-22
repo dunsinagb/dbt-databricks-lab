@@ -1,0 +1,28 @@
+models:
+  - name: stg_cuts
+    description: Cleaned CollegeCuts records, one row per announced cut.
+    columns:
+      - name: institution
+        data_tests:
+          - not_null
+      - name: state
+        data_tests:
+          - not_null
+      - name: cut_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['staff_layoff', 'program_suspension', 'department_closure', 'institution_closure', 'campus_closure', 'teach_out']
+      - name: announcement_date
+        data_tests:
+          - not_null
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['confirmed', 'ongoing', 'reversed']
+      - name: source_url
+        data_tests:
+          - not_null
