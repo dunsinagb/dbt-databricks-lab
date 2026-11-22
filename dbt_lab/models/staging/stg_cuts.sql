@@ -1,4 +1,5 @@
 select
+    md5(trim("Institution") || '|' || trim("Program/Department") || '|' || cast(try_cast("Announcement Date" as date) as varchar)) as cut_key,
     trim("Institution") as institution,
     trim("State") as state,
     trim("Cut Type") as cut_type,
@@ -11,4 +12,4 @@ select
     trim("Status") as status,
     trim("Source URL") as source_url,
     trim("Notes") as notes
-from {{ ref('raw_cuts') }}
+from {{ source('collegecuts', 'raw_cuts') }}

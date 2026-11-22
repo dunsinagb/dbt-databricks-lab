@@ -2,6 +2,10 @@ models:
   - name: stg_cuts
     description: Cleaned CollegeCuts records, one row per announced cut.
     columns:
+      - name: cut_key
+        data_tests:
+          - unique
+          - not_null
       - name: institution
         data_tests:
           - not_null

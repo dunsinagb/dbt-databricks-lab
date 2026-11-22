@@ -1,0 +1,8 @@
+sources:
+  - name: collegecuts
+    description: Raw CollegeCuts data, exported from Supabase.
+    database: dev
+    schema: main
+    tables:
+      - name: raw_cuts
+        description: Unmodified export of the cuts table, one row per announced cut.
